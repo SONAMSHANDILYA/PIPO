@@ -1,0 +1,15 @@
+module pipo(
+    input [3:0] pin,
+    input clk, rst,
+    output reg [3:0] pout
+);
+
+    always @(posedge clk) begin
+        if (rst) begin
+            pout <= 4'b0000; // Reset output to all zeros
+        end else begin
+            pout <= pin; // Load input into output on positive clock edge
+        end
+    end
+
+endmodule
